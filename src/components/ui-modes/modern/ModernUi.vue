@@ -25,6 +25,7 @@ export default {
       bigCrunch: false,
       hasReality: false,
       newGameKey: "",
+      pageIsTop: true,
     };
   },
   computed: {
@@ -33,7 +34,13 @@ export default {
     },
     topMargin() {
       return this.$viewModel.news ? "" : "margin-top: 3.9rem";
-    }
+    },
+    headerClasses() {
+      return `sticky-header ${this.pageIsTop ? "" : "background"}`;
+    },
+  },
+  mounted() {
+    this.handleScroll();
   },
   methods: {
     update() {
@@ -47,45 +54,47 @@ export default {
     handleClick() {
       if (PlayerProgress.infinityUnlocked()) manualBigCrunchResetRequest();
       else Modal.bigCrunch.show();
+    },
+    handleScroll() {
+      const ui = document.getElementById("ui");
+
+      ui.addEventListener("scroll", () => {
+        if (this.pageIsTop === true && ui.scrollTop > 0) {
+          this.pageIsTop = false;
+          return;
+        }
+
+        if (this.pageIsTop === false && ui.scrollTop <= 0) {
+          this.pageIsTop = true;
+        }
+
+      });
     }
-  },
+  }
 };
 </script>
 
 <template>
   <div id="page">
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="stylesheets/new-ui-styles.css"
-    >
-    <div
-      :key="newGameKey"
-      class="game-container"
-      :style="topMargin"
-    >
-      <NewsTicker
-        v-if="news"
-      />
-      <BigCrunchButton />
-      <div
-        v-if="!bigCrunch"
-        class="tab-container"
-      >
-        <HeaderPrestigeGroup />
-        <div class="information-header">
-          <HeaderChallengeDisplay />
-          <HeaderChallengeEffects />
-          <GameSpeedDisplay v-if="hasReality" />
-          <br v-if="hasReality">
-          <HeaderBlackHole />
+    <link rel="stylesheet" type="text/css" href="stylesheets/new-ui-styles.css">
+    <div :key="newGameKey" class="game-container" :style="topMargin">
+      <div :class="headerClasses">
+        <NewsTicker v-if="news" />
+        <BigCrunchButton />
+        <div v-if="!bigCrunch" class="tab-container">
+          <HeaderPrestigeGroup />
+          <div class="information-header">
+            <HeaderChallengeDisplay />
+            <HeaderChallengeEffects />
+            <GameSpeedDisplay v-if="hasReality" />
+            <br v-if="hasReality">
+            <HeaderBlackHole />
+          </div>
         </div>
-        <slot />
       </div>
+      <slot />
     </div>
   </div>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

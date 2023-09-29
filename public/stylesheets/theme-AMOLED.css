@@ -1,3 +1,7 @@
+:root .t-amoled {
+  --background: black;
+}
+
 body.t-amoled {
   color: #b9b9b9;
   background: black;

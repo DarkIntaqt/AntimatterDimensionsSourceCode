@@ -17,6 +17,10 @@
   transform: translate(-50%, -50%);
 }
 
+:root .t-s6 {
+  --background: rgba(0, 0, 0, 0.7)
+}
+
 body.t-s6 {
   color: #999999;
   background: black;

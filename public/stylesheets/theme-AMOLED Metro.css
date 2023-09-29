@@ -1,3 +1,7 @@
+:root .t-amoled-metro {
+  --background: black;
+}
+
 body.t-amoled-metro {
   color: #b9b9b9;
   background: black;

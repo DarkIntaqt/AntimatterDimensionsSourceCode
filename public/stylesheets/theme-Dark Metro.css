@@ -1,3 +1,7 @@
+:root .t-dark-metro {
+  --background: rgba(0, 0, 0, .6);
+}
+
 body.t-dark-metro {
   color: #757575;
   background-image: url("../images/dark-bg.png");

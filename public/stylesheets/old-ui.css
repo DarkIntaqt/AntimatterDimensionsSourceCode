@@ -3,13 +3,17 @@
   src: url("MonospaceTypewriter.ttf");
 }
 
+:root {
+  --background: #fff;
+}
+
 #ui {
   scrollbar-gutter: stable both-edges;
 }
 
 .c-old-ui {
   width: 100%;
-  height: 100%;
+  min-height: 100%;
   box-sizing: border-box;
   padding: 0.9rem 1.5rem 0;
 }
@@ -18,6 +22,29 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.l-old-ui__sticky {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  z-index: 5;
+  position: sticky;
+  top: 0.9rem;
+
+  /* -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px); */
+  transition: .25s background;
+  margin-bottom: 0.5rem;
+  padding-top: 0.5rem;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+.l-old-ui__sticky.background {
+  background: var(--background);
 }
 
 .l-old-ui__news-bar {

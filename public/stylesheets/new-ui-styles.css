@@ -12,6 +12,8 @@
   --color-antimatter--bg: #df50504d;
   --color-infinity--bg: #b67f334d;
   --color-eternity--bg: #b341e04d;
+
+  --background: #ffffff;
 }
 
 :root .t-s12 {
@@ -37,6 +39,8 @@
 
   --color-laitela--base: black;
   --color-laitela--accent: white;
+
+  --background: #111014;
 }
 
 :root .t-metro,
@@ -62,7 +66,7 @@ body.t-s12 {
 #page {
   display: flex;
   width: 100%;
-  height: 100%;
+  min-height: 100%;
   justify-content: flex-start;
   align-items: stretch;
   font-family: Typewriter, serif;
@@ -124,7 +128,7 @@ body.t-s12 {
   z-index: 1;
 }
 
-.c-modern-sidebar > .o-tab-btn {
+.c-modern-sidebar>.o-tab-btn {
   border-left-width: 0;
 }
 
@@ -204,7 +208,7 @@ body.t-s12 {
   justify-content: center;
 }
 
-.tab-container > .l-antimatter-dim-tab {
+.tab-container>.l-antimatter-dim-tab {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -339,7 +343,8 @@ body.t-s12 {
 }
 
 .l-dimensions-container {
-  padding: 0.5rem 5rem 0.5rem 9rem; /* TOP RIGHT BOTTOM LEFT */
+  padding: 0.5rem 5rem 0.5rem 9rem;
+  /* TOP RIGHT BOTTOM LEFT */
 }
 
 .o-primary-btn--new {
@@ -477,13 +482,31 @@ body.t-s12 {
   animation: a-tesseract-shift-dark 5s infinite;
 }
 
+.sticky-header {
+  width: 100%;
+  z-index: 5;
+  position: sticky;
+  top: 0;
+
+  /* -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px); */
+  margin-bottom: 0.5rem;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  transition: .25s background;
+}
+
+.sticky-header.background {
+  background: var(--background);
+}
+
 .information-header {
   font-size: 1.2rem;
   font-weight: bold;
   color: var(--color-text);
   border-bottom: 0.1rem solid var(--color-good);
   margin-top: 1rem;
-  margin-bottom: 0.5rem;
   padding-bottom: 0.6rem;
 }
 
@@ -789,7 +812,7 @@ body.t-s12 {
   font-size: 0.95rem;
 }
 
-.resource-eternity-canreset > div {
+.resource-eternity-canreset>div {
   height: 100%;
 }
 
@@ -898,7 +921,7 @@ body.t-s12 {
 .t-normal .c-sacrificed-glyphs--dragover,
 .t-s12 .c-sacrificed-glyphs--dragover {
   border-color: rgb(255, 255, 255);
-  box-shadow: 0 0 0.1rem 0.1rem  rgb(255, 255, 255);
+  box-shadow: 0 0 0.1rem 0.1rem rgb(255, 255, 255);
 }
 
 .t-normal .c-glyph-choice-icon,

@@ -5,6 +5,10 @@ html {
   background-size: 150%;
 }
 
+:root .t-s5 {
+  --background: rgba(255, 255, 255, .7);
+}
+
 body.t-s5 {
   color: black;
   text-shadow: 0.5px 0.5px 0 black;

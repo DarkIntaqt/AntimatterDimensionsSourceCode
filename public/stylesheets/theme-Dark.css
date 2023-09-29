@@ -1,3 +1,7 @@
+:root .t-dark {
+  --background: rgba(0, 0, 0, .6);
+}
+
 body.t-dark {
   color: #888888;
   background-image: url("../images/dark-bg.png");

@@ -24,6 +24,10 @@ html {
   cursor: url("cursor.cur"), auto !important;
 }
 
+:root .t-s4 {
+  --background: #0fff0f
+}
+
 body {
   background: #0fff0f !important;
   border: 0.1rem solid white !important;
